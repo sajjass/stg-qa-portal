@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+</head>
+<body>
+      <table class="table table-bordered">
+        <thead class="thead-inverse">
+          <tr>
+            <th>sprint</th>
+            <th>date</th>
+            <th>story_id</th>
+            <th>project</th>
+            <th>Task</th>
+            <th>Description</th>
+            <th>defects_filed</th>
+            <th>defects_verified</th>
+            <th>created_by</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for stats in daily_stats %}
+            <tr>
+              	<td>{{ stats.sprint }}</td>
+            	<td>{{ stats.date }}</td>
+                <td>{{ stats.story_id }}</td>
+                <td>{{ stats.project }}</td>
+                <td>{{ stats.Task }}</td>
+                <td style="word-wrap: break-word;max-width:400px;">{{ stats.Description }}</td>
+                <td>{{ stats.defects_filed }}</td>
+                <td>{{ stats.defects_verified }}</td>
+                <td>{{ stats.created_by }}</td>
+                <td>
+                    <a class="related-widget-wrapper-link change-related" id="change_id_sprint" title="Change selected sprints" href="{% url 'dailystatus:edit_dailystatus' stats.pk %}">
+	                    <img src="/static/admin/img/icon-changelink.svg" alt="Change">
+                    </a>
+                </td>
+                <td>
+                    <a class="related-widget-wrapper-link delete-related" id="delete_id_sprint" title="delete selected sprints" href="{% url 'dailystatus:delete_dailystatus' stats.pk %}" onclick="return confirm('Are you sure?')">
+	                    <img src="/static/admin/img/icon-deletelink.svg" alt="delete">
+                    </a>
+                </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+  </body>
+</html>

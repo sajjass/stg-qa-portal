@@ -1,0 +1,88 @@
+{% extends 'dailystatus/base.html' %}
+
+{% block title %}Add dailystats{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <!-- Content -->
+        <div id="content" class="colM">
+            <div>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active"><h1>Add dailystats</h1></li>
+                </ol>
+            </div>
+            <div id="content-main">
+                <form class="form-horizantal" action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <fieldset class="module aligned">
+                        <div class="form-row field-sprint">
+                            <div>
+                                <label class="required">Sprint:</label>
+                                {{ form.sprint }}
+                            </div>
+                        </div>
+                        <div class="form-row field-story_id">
+                            <div>
+                                <label class="required" for="id_story_id">Story id:</label>
+                                <input type="text" name="story_id" class="vTextField" maxlength="30" required id="id_story_id" />
+                            </div>
+                        </div>
+                        <div class="form-row field-project">
+                            <div>
+                                <label class="required" for="id_project">Project:</label>
+                                <input type="text" name="project" class="vTextField" maxlength="30" required id="id_project" />
+                            </div>
+                        </div>
+
+                        <div class="form-row field-Task">
+                            <div>
+                                <label class="required" for="id_Task">Task:</label>
+                                <input type="text" name="Task" class="vTextField" maxlength="250" required id="id_Task" />
+                            </div>
+                        </div>
+
+                        <div class="form-row field-Description">
+                            <div>
+                                <label class="required" for="id_Description">Description:</label>
+                                <textarea name="Description" cols="40" rows="10" class="vLargeTextField" maxlength="5000" required id="id_Description"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-row field-defects_filed">
+                            <div>
+                                <label>Defects filed:</label>
+                                <input type="text" name="defects_filed" class="vTextField" maxlength="250"/>
+                            </div>
+                        </div>
+
+                        <div class="form-row field-defects_verified">
+                            <div>
+                                <label>Defects verified:</label>
+                                <input type="text" name="defects_verified" class="vTextField" maxlength="250"/>
+                            </div>
+                        </div>
+
+                        <div class="form-row field-created_by">
+                            <div>
+                                <label for="id_created_by">created_by:</label>
+                                <input type="text" name="created_by" class="vTextField" maxlength="300" required id="id_created_by" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

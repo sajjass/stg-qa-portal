@@ -1,0 +1,14 @@
+{% extends 'dailystatus/base.html' %}
+
+<script>
+    alert('{{ messages }}');
+</script>
+
+{% block body %}
+    <div class="container">
+        <ol class="breadcrumb my-4">
+          <li class="breadcrumb-item active"><h2>Daily Status information:</h2></li>
+        </ol>
+        {% include 'dailystatus/display_sprint_data.html' %}
+    </div>
+{% endblock %}
